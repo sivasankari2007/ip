@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket Reservation</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+        }
+
+        .box {
+            width: 400px;
+            margin: 50px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Ticket Reservation</h2>
+
+    <form onsubmit="reserve(event)">
+        <input type="text" id="name" placeholder="Passenger Name" required>
+
+        <input type="text" id="from" placeholder="From" required>
+
+        <input type="text" id="to" placeholder="To" required>
+
+        <input type="date" id="date" required>
+
+        <input type="number" id="tickets" placeholder="Number of Tickets"
+               min="1" required>
+
+        <button type="submit">Reserve Ticket</button>
+    </form>
+
+    <p id="result"></p>
+</div>
+
+<script>
+function reserve(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let from = document.getElementById("from").value;
+    let to = document.getElementById("to").value;
+    let date = document.getElementById("date").value;
+    let tickets = document.getElementById("tickets").value;
+
+    document.getElementById("result").innerHTML =
+        "Ticket reserved successfully!<br>" +
+        "Passenger: " + name + "<br>" +
+        "Route: " + from + " to " + to + "<br>" +
+        "Date: " + date + "<br>" +
+        "Tickets: " + tickets;
+}
+</script>
+
+</body>
+</html>
